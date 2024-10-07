@@ -10,6 +10,9 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import FloatingDockDemo from "@/components/Header";
 import TextGenerateEffectDemo from "@/components/Gente";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
 
 export default function SignupFormDemo() {
  const Schema = z.object({
@@ -18,10 +21,19 @@ export default function SignupFormDemo() {
   email:z.string(),
   password: z.string()
  })
-  const onSubmit = (data)=>{
-    console.log(data);
-     }
 
+ const router = useRouter()
+  const onSubmit = async()=>{
+    try {
+       const response = await axios.post('/api/user/signup')
+       console.log("SignUp Success",response.data);
+       router.push("/login")
+       
+    } catch (error) {
+      console.log("SignUp Failed ", error.message);
+      
+    }
+     }
      const {register,handleSubmit, formState:{errors } } = useForm({
       resolver:zodResolver(Schema),
       defaultValues:{
@@ -44,7 +56,7 @@ export default function SignupFormDemo() {
         Welcome to Unleashing world
       </h2>
       <TextGenerateEffectDemo/>
-      <form className="my-8" onSubmit={ handleSubmit(onSubmit) }>
+      <form className="my-8" onSubmit={handleSubmit(onSubmit) }>
         <div
           className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>

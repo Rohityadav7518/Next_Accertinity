@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import FloatingDockDemo from "@/components/Header";
 import TextGenerateEffectDemo from "@/components/Gente";
+import Spline from "@splinetool/react-spline";
 
 export default function SignupFormDemo() {
  const Schema = z.object({
@@ -40,8 +41,10 @@ export default function SignupFormDemo() {
   return (
     <>
    <div className="h-screen flex flex-wrap items-center justify-center mt-5 w-full">
+    
    <div className="flex  w-full mb-6 items-center justify-center h-3">
     <FloatingDockDemo/>
+
     </div>
     (<div
       className="max-w-md mt-2 w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">

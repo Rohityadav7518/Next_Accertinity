@@ -9,9 +9,10 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from 'next/image';
 import { cn } from "@/lib/utils";
-import ThreeDCardDemo from "@/components/Demo";
+import Spline from "@splinetool/react-spline";
+
 
 
 export default function SidebarDemo() {
@@ -114,16 +115,19 @@ export const LogoIcon = () => {
 
 // Dummy dashboard component with content
 const Dashboard = () => {
-  const cardsArray = Array.from({length:8})
+  
    
   return (
-    (<div className="flex flex-1">
+    (<div className="flex flex-1 mt-2 " >
       <div
-        className="p-2 h-screen  rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-wrap gap-2 flex-1  max-w-full max-h-screen   ">
-        <div className="flex  flex-wrap gap-8 items-center justify-center  w-full h-screen  ">
-                {cardsArray.map((_,index)=>(
-             <ThreeDCardDemo key={index}/>
-          ))  }
+        className="p-2 h-screen  rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-wrap  flex-1  max-w-full max-h-screen   ">
+        <div className="flex   items-center justify-center  w-full
+          h-screen  "  >
+
+        <Spline 
+        scene="https://prod.spline.design/fagRARJHZH5e0X04/scene.splinecode"/>
+          
+          
           
         </div>
        
